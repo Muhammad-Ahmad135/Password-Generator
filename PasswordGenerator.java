@@ -5,13 +5,12 @@ import java.util.Random;
 public class PasswordGenerator {
 
     public static void main(String[] args) {
-        // Frame setup
+
         JFrame frame = new JFrame("PASSWORD GENERATOR");
         frame.setSize(500, 450);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
-        // Title
         Color neonGreen = new Color(57, 255, 20);
         JLabel title = new JLabel("PASSWORD GENERATOR", SwingConstants.CENTER);
         title.setFont(new Font("Roboto", Font.BOLD, 24));
@@ -21,13 +20,12 @@ public class PasswordGenerator {
         title.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
         frame.add(title, BorderLayout.NORTH);
 
-        // Options panel (BLACK box)
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBackground(Color.BLACK);
         panel.setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
 
-        // Length input
+        // password lenght input
         JLabel lengthLabel = new JLabel("Password Length");
         lengthLabel.setForeground(neonGreen);
         lengthLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -36,7 +34,7 @@ public class PasswordGenerator {
         lengthSpinner.setMaximumSize(new Dimension(100, 30));
         lengthSpinner.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // Checkboxes
+        // requirment checks
         JCheckBox lowercase = new JCheckBox("Include Lowercase (a-z)");
         JCheckBox uppercase = new JCheckBox("Include Uppercase (A-Z)");
         JCheckBox numbers = new JCheckBox("Include Numbers (0-9)");
@@ -48,20 +46,18 @@ public class PasswordGenerator {
             cb.setBackground(Color.BLACK);
         }
 
-        // Generate button
         JButton generateBtn = new JButton("Generate Password");
         generateBtn.setBackground(neonGreen);
         ;
         generateBtn.setForeground(Color.BLACK);
         generateBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // Result field
+        //result box
         JTextField resultField = new JTextField();
         resultField.setEditable(false);
         resultField.setMaximumSize(new Dimension(300, 30));
         resultField.setHorizontalAlignment(SwingConstants.CENTER);
 
-        // Add to panel
         panel.add(lengthLabel);
         panel.add(Box.createVerticalStrut(5));
         panel.add(lengthSpinner);
@@ -79,7 +75,7 @@ public class PasswordGenerator {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        // Logic for button
+        // generate button logic
         generateBtn.addActionListener(e -> {
             int length = (int) lengthSpinner.getValue();
             String chars = "";
@@ -107,3 +103,4 @@ public class PasswordGenerator {
         });
     }
 }
+
